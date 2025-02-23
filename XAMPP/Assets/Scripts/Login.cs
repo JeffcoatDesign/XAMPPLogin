@@ -13,7 +13,7 @@ public class Login : MonoBehaviour
     {
         loginButton.onClick.AddListener(() =>
         {
-            StartCoroutine(Main.instance.Web.Login(UsernameInput.text, PasswordInput.text));
+            StartCoroutine(Main.instance.web.Login(UsernameInput.text, PasswordInput.text));
         });
         registerButton.onClick.AddListener(() =>
         {

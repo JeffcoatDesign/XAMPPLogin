@@ -90,13 +90,25 @@ public class Web : MonoBehaviour
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                Main.instance.userInfo.SetCredentials(username, password);
+                Main.instance.userInfo.SetID(www.downloadHandler.text);
+
+                if (www.downloadHandler.text.Contains("Wrong Credentials") || www.downloadHandler.text.Contains("Username does not exist."))
+                {
+                    Debug.Log("Try again");
+                }
+                else
+                {
+                    Main.instance.userProfile.SetActive(true);
+                    Main.instance.login.gameObject.SetActive(false);
+                }
             }
         }
     }
 
     public IEnumerator RegisterUser(string username, string password)
     {
-        WWWForm form = new WWWForm();
+        WWWForm form = new();
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
 
@@ -111,6 +123,76 @@ public class Web : MonoBehaviour
             else
             {
                 Debug.Log(www.downloadHandler.text);
+            }
+        }
+    }
+
+    public IEnumerator GetItemsIDs(string userID, System.Action<string> callback)
+    {
+        WWWForm form = new();
+        form.AddField("userID", userID);
+
+        string uri = "http://localhost/UnityBackendTutorial/GetItemIDs.php";
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+
+                    string jsonArray = webRequest.downloadHandler.text; 
+
+                    //TODO Call callback function to pass the results
+                    callback.Invoke(jsonArray);
+                    break;
+            }
+        }
+    }
+
+    public IEnumerator GetItem(string itemID, System.Action<string> callback)
+    {
+        WWWForm form = new();
+        form.AddField("itemID", itemID);
+
+        string uri = "http://localhost/UnityBackendTutorial/GetItem.php";
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+
+                    string jsonArray = webRequest.downloadHandler.text;
+
+                    //TODO Call callback function to pass the results
+                    callback.Invoke(jsonArray);
+                    break;
             }
         }
     }

@@ -5,11 +5,15 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     public static Main instance;
-    public Web Web;
+    public Web web;
+    public UserInfo userInfo;
+    public Login login;
+    public GameObject userProfile;
 
     private void Awake()
     {
         instance = this;
-        Web = GetComponent<Web>();
+        web = GetComponent<Web>();
+        userInfo = GetComponent<UserInfo>();
     }
 }

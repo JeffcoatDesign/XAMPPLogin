@@ -15,7 +15,7 @@ public class Register : MonoBehaviour
         {
             if (PasswordInput.text == ConfirmPasswordInput.text)
             {
-                StartCoroutine(Main.instance.Web.RegisterUser(UsernameInput.text, PasswordInput.text));
+                StartCoroutine(Main.instance.web.RegisterUser(UsernameInput.text, PasswordInput.text));
             }
         });
     }
