@@ -61,12 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Login.cs" />
+    <Compile Include="Assets\Scripts\ItemsManager.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\SimpleJSON.cs" />
     <Compile Include="Assets\Scripts\UserInfo.cs" />
-    <Compile Include="Assets\Scripts\Items.cs" />
     <Compile Include="Assets\Scripts\Register.cs" />
     <Compile Include="Assets\Scripts\Web.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

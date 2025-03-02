@@ -190,8 +190,38 @@ public class Web : MonoBehaviour
 
                     string jsonArray = webRequest.downloadHandler.text;
 
-                    //TODO Call callback function to pass the results
                     callback.Invoke(jsonArray);
+                    break;
+            }
+        }
+    }
+    public IEnumerator SellItem(string userItemID, string itemID, string userID)
+    {
+        WWWForm form = new();
+        form.AddField("id", userItemID);
+        form.AddField("userID", userID);
+        form.AddField("itemID", userID);
+
+        string uri = "http://localhost/UnityBackendTutorial/sellItem.php";
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                     break;
             }
         }

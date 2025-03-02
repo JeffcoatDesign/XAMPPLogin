@@ -1,20 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "unitybackendtutorial";
+require 'ConnectionSettings.php';
 
 //User submitted variables
 $userID = $_POST["userID"];
-
-//Create Connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 //Check Connection
 if($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT itemID from usersitems WHERE userID = '". $userID . "'";
+$sql = "SELECT ID, itemID from usersitems WHERE userID = '". $userID . "'";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0) {
