@@ -9,7 +9,7 @@ public class Web : MonoBehaviour
     void Start()
     {
         // A correct website page.
-        //StartCoroutine(GetRequest("http://localhost/UnityBackendTutorial/GetDate.php"));
+        //StartCoroutine(GetRequest("http://jacobjeffcoat.iceiy.com/GetDate.php"));
         //StartCoroutine(GetUsers());
         //StartCoroutine(Login("testUser", "123456"));
         //StartCoroutine(Login("testUser2", "123456"));
@@ -48,7 +48,7 @@ public class Web : MonoBehaviour
 
     public IEnumerator GetUsers()
     {
-        string uri = "http://localhost/UnityBackendTutorial/GetUsers.php";
+        string uri = "http://jacobjeffcoat.iceiy.com/GetUsers.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -78,8 +78,8 @@ public class Web : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
-
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/UnityBackendTutorial/Login.php", form))
+        
+        using (UnityWebRequest www = UnityWebRequest.Post("http://jacobjeffcoat.iceiy.com/Login.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -112,7 +112,7 @@ public class Web : MonoBehaviour
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/UnityBackendTutorial/RegisterUser.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://jacobjeffcoat.iceiy.com/RegisterUser.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -132,7 +132,7 @@ public class Web : MonoBehaviour
         WWWForm form = new();
         form.AddField("userID", userID);
 
-        string uri = "http://localhost/UnityBackendTutorial/GetItemIDs.php";
+        string uri = "http://jacobjeffcoat.iceiy.com/GetItemIDs.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
         {
             // Request and wait for the desired page.
@@ -167,7 +167,7 @@ public class Web : MonoBehaviour
         WWWForm form = new();
         form.AddField("itemID", itemID);
 
-        string uri = "http://localhost/UnityBackendTutorial/GetItem.php";
+        string uri = "http://jacobjeffcoat.iceiy.com/GetItem.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
         {
             // Request and wait for the desired page.
@@ -202,7 +202,7 @@ public class Web : MonoBehaviour
         form.AddField("userID", userID);
         form.AddField("itemID", userID);
 
-        string uri = "http://localhost/UnityBackendTutorial/sellItem.php";
+        string uri = "http://jacobjeffcoat.iceiy.com/sellItem.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
         {
             // Request and wait for the desired page.
