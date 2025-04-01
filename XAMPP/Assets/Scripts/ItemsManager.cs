@@ -5,6 +5,7 @@ using System;
 using SimpleJSON;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class ItemsManager : MonoBehaviour
 {
@@ -59,16 +60,38 @@ public class ItemsManager : MonoBehaviour
             itemGO.transform.Find("Price Text").GetComponent<TextMeshProUGUI>().text = itemInfoJSON["price"];
             itemGO.transform.Find("Description Text").GetComponent<TextMeshProUGUI>().text = itemInfoJSON["description"];
 
-            // Set Sell button
-            itemGO.transform.Find("Sell Button").GetComponent<Button>().onClick.AddListener(() =>
-            {
-                string userItemId = id;
-                string iID = itemID;
-                string userID = Main.instance.userInfo.userID;
+            int imgVer = itemInfoJSON["imgVer"].AsInt;
 
-                StartCoroutine(Main.instance.web.SellItem(userItemId, iID, userID));
-            });
+            byte[] bytes = ImageManager.Instance.LoadImage(itemID, imgVer);
+
+            if (bytes.Length == 0)
+            {
+                Action<byte[]> getItemSpriteCallback = (downloadedBytes) =>
+                {
+                    Sprite sprite = ImageManager.Instance.BytesToSprite(downloadedBytes);
+                    itemGO.transform.Find("Image").GetComponent<Image>().sprite = sprite;
+                    ImageManager.Instance.SaveImage(itemID, downloadedBytes, imgVer);
+                    ImageManager.Instance.SaveVersionJson();
+                };
+                StartCoroutine(Main.instance.web.GetItemIcon(itemID, getItemSpriteCallback));
+            } else
+            {
+                Sprite sprite = ImageManager.Instance.BytesToSprite(bytes);
+                itemGO.transform.Find("Image").GetComponent<Image>().sprite = sprite;
+            }
+
+
+                // Set Sell button
+                itemGO.transform.Find("Sell Button").GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    string userItemId = id;
+                    string iID = itemID;
+                    string userID = Main.instance.userInfo.userID;
+
+                    StartCoroutine(Main.instance.web.SellItem(userItemId, iID, userID));
+                });
         }
+
 
         yield return null;
     }

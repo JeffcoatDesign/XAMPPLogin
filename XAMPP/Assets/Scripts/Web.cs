@@ -1,14 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using static System.Net.WebRequestMethods;
 
 public class Web : MonoBehaviour
 {
+    public string url = "http://localhost/unitybackendtutorial/";
+
     void Start()
     {
         // A correct website page.
+        StartCoroutine(GetRequest($"{url}GetDate.php"));
         //StartCoroutine(GetRequest("http://jacobjeffcoat.iceiy.com/GetDate.php"));
         //StartCoroutine(GetUsers());
         //StartCoroutine(Login("testUser", "123456"));
@@ -24,6 +27,8 @@ public class Web : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(webRequest);
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -48,9 +53,12 @@ public class Web : MonoBehaviour
 
     public IEnumerator GetUsers()
     {
-        string uri = "http://jacobjeffcoat.iceiy.com/GetUsers.php";
+        string uri = url + "GetUsers.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(webRequest);
+
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -79,8 +87,11 @@ public class Web : MonoBehaviour
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
         
-        using (UnityWebRequest www = UnityWebRequest.Post("http://jacobjeffcoat.iceiy.com/Login.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(url + "Login.php", form))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(www);
+
             yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
@@ -112,8 +123,11 @@ public class Web : MonoBehaviour
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://jacobjeffcoat.iceiy.com/RegisterUser.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(url + "RegisterUser.php", form))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(www);
+
             yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
@@ -132,9 +146,12 @@ public class Web : MonoBehaviour
         WWWForm form = new();
         form.AddField("userID", userID);
 
-        string uri = "http://jacobjeffcoat.iceiy.com/GetItemIDs.php";
+        string uri = url + "GetItemIDs.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(webRequest);
+
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -167,9 +184,12 @@ public class Web : MonoBehaviour
         WWWForm form = new();
         form.AddField("itemID", itemID);
 
-        string uri = "http://jacobjeffcoat.iceiy.com/GetItem.php";
+        string uri = url + "GetItem.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(webRequest);
+
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -195,16 +215,65 @@ public class Web : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator GetItemIcon(string itemID, System.Action<byte[]> callback)
+    {
+        WWWForm form = new();
+        form.AddField("itemID", itemID);
+
+        string uri = url + "GetItemIcon.php";
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
+        {
+            // Trick host into thinking unity is a browser
+            AddHeader(webRequest);
+
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                    Debug.Log("DOWNLOADING: Icon " + itemID);
+
+                    byte[] bytes = webRequest.downloadHandler.data;
+
+                    if(webRequest.downloadHandler.data == null)
+                    {
+                        Debug.LogError("No data returned");
+                    }
+
+                    callback.Invoke(bytes);
+
+                    break;
+            }
+        }
+    }
+
     public IEnumerator SellItem(string userItemID, string itemID, string userID)
     {
         WWWForm form = new();
+
         form.AddField("id", userItemID);
         form.AddField("userID", userID);
         form.AddField("itemID", userID);
 
-        string uri = "http://jacobjeffcoat.iceiy.com/sellItem.php";
+        string uri = url + "sellItem.php";
         using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, form))
         {
+            // Trick host into thinking unity is a browser
+            AddHeader(webRequest);
+
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -225,5 +294,16 @@ public class Web : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void AddHeader(UnityWebRequest webRequest)
+    {
+        //webRequest.SetRequestHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
+        //webRequest.SetRequestHeader("Accept-Encoding", "gzip, deflate");
+        //webRequest.SetRequestHeader("Accept-Language", "en");
+        //webRequest.SetRequestHeader("Cache-Control", "max-age=0");
+        //webRequest.SetRequestHeader("Cookie", "__test=d4f16507ae75e677830d2f5a3f570eca");
+        //webRequest.SetRequestHeader("Upgrade-Insecure-Requests", "1");
+        //webRequest.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36");
     }
 }

@@ -1,16 +1,16 @@
-<?php
+﻿<?php
 require 'ConnectionSettings.php';
 
 //Variables submitted by user
 //$loginUser = $_POST["loginUser"];
 //$loginPass = $_POST["loginPass"];
-$itemID = $_POST["itemID"];
 
 if($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
+$itemID = $_POST["itemID"];
 
-$sql = "SELECT name, description, price FROM items WHERE ID = '" . $itemID . "'";
+$sql = "SELECT name, description, price, imgVer FROM items WHERE ID = '" . $itemID . "'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

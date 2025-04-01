@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|F:\\SIM 421\\XAMPPLogin\\XAMPP\\assets\\scripts\\web.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\web.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|f:\\sim 421\\xampplogin\\xampp\\assets\\scripts\\itemsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\itemsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|f:\\sim 421\\xampplogin\\xampp\\assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|f:\\sim 421\\xampplogin\\xampp\\assets\\scripts\\imagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\imagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|F:\\SIM 421\\XAMPPLogin\\XAMPP\\assets\\scripts\\web.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\web.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|F:\\SIM 421\\XAMPPLogin\\XAMPP\\assets\\scripts\\simplejson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplejson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|F:\\SIM 421\\XAMPPLogin\\XAMPP\\assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D7DCF90-7AAD-FCAF-B065-648319CC5714}|Assembly-CSharp.csproj|F:\\SIM 421\\XAMPPLogin\\XAMPP\\assets\\scripts\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +46,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ItemsManager.cs",
+              "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\ItemsManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ItemsManager.cs",
+              "ToolTip": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\ItemsManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ItemsManager.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwEoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T21:19:59.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ImageManager.cs",
+              "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\ImageManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ImageManager.cs",
+              "ToolTip": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\ImageManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ImageManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACEAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T20:53:00.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SimpleJSON.cs",
+              "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\SimpleJSON.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleJSON.cs",
+              "ToolTip": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\SimpleJSON.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SimpleJSON.cs",
+              "ViewState": "AgIAAAQCAAAAAAAAAAAMwBwCAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:26:11.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Item.cs",
               "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Item.cs",
@@ -56,19 +103,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ItemsManager.cs",
-              "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\ItemsManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ItemsManager.cs",
-              "ToolTip": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\ItemsManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ItemsManager.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAgwEQAAAA3AAAAAAAAAA==",
+              "Title": "Web.cs",
+              "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Web.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Web.cs",
+              "ToolTip": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Web.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Web.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAAAPYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T20:56:44.881Z",
+              "WhenOpened": "2025-02-13T01:08:17.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UserInfo.cs",
               "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\UserInfo.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UserInfo.cs",
@@ -76,11 +123,12 @@
               "RelativeToolTip": "Assets\\Scripts\\UserInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T20:27:27.746Z"
+              "WhenOpened": "2025-02-23T20:27:27.746Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Register.cs",
               "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Register.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Register.cs",
@@ -88,11 +136,12 @@
               "RelativeToolTip": "Assets\\Scripts\\Register.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T02:48:00.739Z"
+              "WhenOpened": "2025-02-13T02:48:00.739Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Login.cs",
               "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Login.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Login.cs",
@@ -100,11 +149,12 @@
               "RelativeToolTip": "Assets\\Scripts\\Login.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T02:19:45.033Z"
+              "WhenOpened": "2025-02-13T02:19:45.033Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Main.cs",
               "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Main.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Main.cs",
@@ -112,19 +162,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Main.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T02:18:07.524Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Web.cs",
-              "DocumentMoniker": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Web.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Web.cs",
-              "ToolTip": "F:\\SIM 421\\XAMPPLogin\\XAMPP\\Assets\\Scripts\\Web.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Web.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAAgwMgAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T01:08:17.648Z",
+              "WhenOpened": "2025-02-13T02:18:07.524Z",
               "EditorCaption": ""
             }
           ]
